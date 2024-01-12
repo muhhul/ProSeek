@@ -13,5 +13,7 @@
 ![image](https://github.com/muhhul/ProSeek/assets/114352106/ff791efa-29ca-4d9c-a6b4-cc98b8904065)
 ![image](https://github.com/muhhul/ProSeek/assets/114352106/9a604f37-9280-4a0b-ae91-fe8e5ab24e9c)
 ![image](https://github.com/muhhul/ProSeek/assets/114352106/08f7dea4-e5dc-4f2d-a4b3-0203e606cf68)
+![image](https://github.com/muhhul/ProSeek/assets/114352106/88acb5ab-a4c3-458d-a77a-85944419a70a)
+![image](https://github.com/muhhul/ProSeek/assets/114352106/1e7968c7-2162-49bf-a3e0-aa00afa333ba)
 
 
