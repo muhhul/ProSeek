@@ -1,4 +1,5 @@
 import 'package:app_gdsc/screens/splash_screen.dart';
+import 'package:app_gdsc/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,11 +17,14 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _passwordController = TextEditingController();
 
   bool isButtonEnabled() {
-    return _usernameController.text.isNotEmpty && _passwordController.text.isNotEmpty;
+    return _usernameController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty;
   }
 
   String getButtonImage() {
-    return isButtonEnabled() ? 'assets/svgs/signInBlue.svg' : 'assets/svgs/signInGrey.svg';
+    return isButtonEnabled()
+        ? 'assets/svgs/signInBlue.svg'
+        : 'assets/svgs/signInGrey.svg';
   }
 
   @override
@@ -131,6 +135,18 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 56,
             ),
           ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const StartScreen()),
+              );
+            },
+            child: SvgPicture.asset(
+              'assets/svgs/buttonCreateAcc.svg',
+              height: 56,
+            ),
+          )
         ],
       ),
     );
