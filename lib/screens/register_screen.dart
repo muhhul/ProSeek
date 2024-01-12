@@ -1,4 +1,3 @@
-import 'package:app_gdsc/screens/register_screen.dart';
 import 'package:app_gdsc/screens/splash_screen.dart';
 import 'package:app_gdsc/screens/start_screen.dart';
 import 'package:flutter/material.dart';
@@ -6,26 +5,28 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController _usernameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
   bool isButtonEnabled() {
     return _usernameController.text.isNotEmpty &&
+        _emailController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty;
   }
 
   String getButtonImage() {
     return isButtonEnabled()
-        ? 'assets/svgs/signInBlue.svg'
-        : 'assets/svgs/signInGrey.svg';
+        ? 'assets/svgs/signUpBlue.svg'
+        : 'assets/svgs/signUpGrey.svg';
   }
 
   @override
@@ -66,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              text: "Welcome\n",
+              text: "Create Account\n",
               style: GoogleFonts.inter(
                 fontSize: 30,
                 color: const Color.fromARGB(255, 0, 0, 0),
@@ -75,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               children: [
                 TextSpan(
-                  text: "Let’s get started",
+                  text: "Let’s register your account",
                   style: GoogleFonts.lora(
                     fontSize: 15,
                     color: const Color(0xFF9CA5BF),
@@ -113,6 +114,19 @@ class _LoginScreenState extends State<LoginScreen> {
             onChanged: (value) {
               setState(() {
                 // Update nilai controller setiap kali teks berubah
+                _emailController.text = value;
+              });
+            },
+            obscureText: true,
+            decoration: const InputDecoration(
+              labelText: 'Email',
+            ),
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            onChanged: (value) {
+              setState(() {
+                // Update nilai controller setiap kali teks berubah
                 _passwordController.text = value;
               });
             },
@@ -121,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
               labelText: 'Password',
             ),
           ),
-          const SizedBox(height: 245),
+          const SizedBox(height: 175),
           GestureDetector(
             onTap: isButtonEnabled()
                 ? () {
@@ -136,19 +150,6 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 56,
             ),
           ),
-          const SizedBox(height: 10),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const RegisterScreen()),
-              );
-            },
-            child: SvgPicture.asset(
-              'assets/svgs/buttonCreateAcc.svg',
-              height: 20,
-            ),
-          )
         ],
       ),
     );
